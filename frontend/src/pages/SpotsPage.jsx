@@ -13,7 +13,7 @@ export function SpotsPage() {
   return (
     <main className="">
       <div id="top" className="bg-cover bg-center h-[350px] md:h-[380px] lg:h-[650px]"
-        style={{ backgroundImage: `url('https://res.cloudinary.com/itai-rotstein/image/upload/v1718136925/Adventurist/adventurist_hero2_f3axno.jpg')` }}
+        style={{ backgroundImage: `url('https://res.cloudinary.com/itai-rotstein/image/upload/v1718747643/Adventurist/hero_all_spots_wfcxav.jpg')` }}
       >
         <h1 className="text-3xl text-white font-bold p-12 pt-16">
           גלו את כל הפעילויות: ההרפתקאות המובילות בישראל
