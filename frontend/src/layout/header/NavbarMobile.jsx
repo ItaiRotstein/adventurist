@@ -17,15 +17,22 @@ export const NavbarMobile = ({ isMenuShow, setIsMenuShow }) => {
     }
 
     return (
-        <ul className={`lg:hidden fixed ${isMenuShow ? 'left-0' : '-left-full'} top-[76px] pt-6 w-full h-full flex flex-col gap-4 main-layout tracking-widest text-black text-xl font-semibold bg-white transition-all duration-300 z-100`}>
-            <li className="border-b py-3">
-                <Icon icon="MdOutlineLocalActivity" className="inline me-2 text-clr3 w-6 h-6" />
-                <Link to={"/פעילויות"} onClick={handleClick} className=" hover:underline">כל הפעילויות</Link>
+        <ul className={`lg:hidden fixed ${isMenuShow ? 'left-0' : '-left-full'} top-[76px] pt-6 w-full h-full flex flex-col main-layout tracking-widest text-black text-xl font-semibold bg-white transition-all duration-300 z-100`}>
+            <li className="border-b py-6">
+                <Link to={"/פעילויות"} onClick={handleClick} className=" hover:underline">
+                    <Icon icon="MdOutlineLocalActivity" className="inline me-2 text-clr3 w-6 h-6" />
+                    כל הפעילויות
+                </Link>
             </li>
-            <li className="border-b py-3">
-                <Icon icon="IoLocationSharp" className="inline me-2 text-clr3 w-6 h-6" />
+            <li className="border-b py-6">
 
-                <a onClick={toggleRegionsSubmenu} className="hover:underline cursor-pointer">אזורים</a>
+                <div onClick={toggleRegionsSubmenu} className="hover:underline cursor-pointer flex justify-between items-center">
+                    <span className="">
+                        <Icon icon="IoLocationSharp" className="inline me-2 text-clr3 w-6 h-6" />
+                        אזורים
+                    </span>
+                    <Icon icon={isRegionsSubmenuVisible ? "IoChevronUp" : "IoChevronDown"} className="inline me-2 text-clr3 w-6 h-6" />
+                </div>
                 {isRegionsSubmenuVisible && (
                     <ul className="pl-4 flex flex-col gap-4 mt-4">
                         <li><Link className="ps-8 hover:underline" to="/region/צפון" onClick={handleClick}>צפון</Link></li>
@@ -34,25 +41,35 @@ export const NavbarMobile = ({ isMenuShow, setIsMenuShow }) => {
                     </ul>
                 )}
             </li>
-            <li className="border-b py-3">
-                <Icon icon="MdOutlineRecommend" className="inline me-2 text-clr3 w-6 h-6" />
-                <a onClick={handleClick} className=" hover:underline" href="#size">המלצות</a>
+            <li className="border-b py-6">
+                <Link onClick={handleClick} className=" hover:underline" to="#size">
+                    <Icon icon="MdOutlineRecommend" className="inline me-2 text-clr3 w-6 h-6" />
+                    המלצות
+                </Link>
             </li>
-            <li className="border-b py-3">
-                <Icon icon="IoIosInformationCircleOutline" className="inline me-2 text-clr3 w-6 h-6" />
-                <a onClick={handleClick} className=" hover:underline" href="#m-attributes">מי אנחנו</a>
+            <li className="border-b py-6">
+                <Link onClick={handleClick} className=" hover:underline" to="/about">
+                    <Icon icon="IoIosInformationCircleOutline" className="inline me-2 text-clr3 w-6 h-6" />
+                    מי אנחנו
+                </Link>
             </li>
-            <li className="border-b py-3">
+            {/* <li className="border-b py-6">
+                <Link onClick={handleClick} className=" hover:underline" to="/#faq">
                 <Icon icon="BsQuestionSquare" className="inline me-2 text-clr3 w-6 h-6" />
-                <a onClick={handleClick} className=" hover:underline" href="/#faq">שאלות נפוצות</a>
+                שאלות נפוצות
+                </Link>
+            </li> */}
+            <li className="border-b py-6">
+                <Link onClick={handleClick} className=" hover:underline" to="/contact">
+                    <Icon icon="GrContact" className="inline me-2 text-clr3 w-6 h-6" />
+                    צור קשר
+                </Link>
             </li>
-            <li className="border-b py-3">
-                <Icon icon="GrContact" className="inline me-2 text-clr3 w-6 h-6" />
-                <a onClick={handleClick} className=" hover:underline" href="/#contact">צור קשר</a>
-            </li>
-            <li className="border-b py-3">
-                <Icon icon="TiBusinessCard" className="inline me-2 text-clr3 w-6 h-6" />
-                <a onClick={handleClick} className=" hover:underline" href="/#business">בעל עסק</a>
+            <li className="border-b py-6">
+                <Link onClick={handleClick} className=" hover:underline" to="/business">
+                    <Icon icon="TiBusinessCard" className="inline me-2 text-clr3 w-6 h-6" />
+                    בעל עסק
+                </Link>
             </li>
         </ul>
     );

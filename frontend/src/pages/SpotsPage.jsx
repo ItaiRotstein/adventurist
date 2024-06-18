@@ -27,7 +27,7 @@ export function SpotsPage() {
       </div>
       <HeroCircles />
       <div className="main-layout">
-        <h2 className="text-2xl font-bold py-8">כל הפעילויות</h2>
+        <h2 className="text-2xl font-bold pt-8">כל הפעילויות</h2>
         <ul>
           {spots.map((spot) => (
             <SpotPreview key={spot._id} spot={spot} parentCmp='SpotsPage' />

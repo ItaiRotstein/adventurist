@@ -34,7 +34,7 @@ export const ShareButtons = () => {
         )
       }
 
-          <div className=" ">
+          <div className="">
             <EmailShareButton
               url={window.location.href}
               subject="כדאי לך לבדוק את האתר הזה"

@@ -14,13 +14,13 @@ export const Navbar = () => {
         <a className="hover:underline" href="#attributes">המלצות</a>
       </li>
       <li>
-        <a className="hover:underline" href="#how-to-use">מי אנחנו</a>
+        <a className="hover:underline" href="/about">מי אנחנו</a>
       </li>
+      {/* <li>
+        <a className="hover:underline" href="/#faq">שאלות נפוצות</a>
+      </li> */}
       <li>
-        <a className="hover:underline" href="#faq">שאלות נפוצות</a>
-      </li>
-      <li>
-        <a className="hover:underline" href="#contact">צור קשר</a>
+        <a className="hover:underline" href="/contact">צור קשר</a>
       </li>
     </ul>
   );

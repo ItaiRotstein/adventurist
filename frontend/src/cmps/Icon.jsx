@@ -13,6 +13,8 @@ const IoWalletOutline = lazy(() => import('react-icons/io5').then(module => ({ d
 const IoMenu = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoMenu })));
 const IoSearch = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoSearch })));
 const IoHeart = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoHeart })));
+const IoChevronUp = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoChevronUp })));
+const IoChevronDown = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoChevronDown })));
 
 const TbWorldWww = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbWorldWww })));
 const TbDisabled = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbDisabled })));
@@ -63,6 +65,8 @@ export const Icon = memo(({ icon, className, onClick }) => (
     {icon === 'IoMenu' && <IoMenu className={className} onClick={onClick} />}
     {icon === 'IoSearch' && <IoSearch className={className} onClick={onClick} />}
     {icon === 'IoHeart' && <IoHeart className={className} onClick={onClick} />}
+    {icon === 'IoChevronUp' && <IoChevronUp className={className} onClick={onClick} />}
+    {icon === 'IoChevronDown' && <IoChevronDown className={className} onClick={onClick} />}
     {icon === 'TbWorldWww' && <TbWorldWww className={className} onClick={onClick} />}
     {icon === 'TbDisabled' && <TbDisabled className={className} onClick={onClick} />}
     {icon === 'CiShop' && <CiShop className={className} onClick={onClick} />}
