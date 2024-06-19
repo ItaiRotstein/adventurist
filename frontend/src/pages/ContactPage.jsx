@@ -1,7 +1,7 @@
 import Contact from '../cmps/Contact';
 export const ContactPage = () => {
     return (
-        <main>
+        <main className="bg-white">
             <Contact />
         </main>
     );

@@ -19,7 +19,7 @@ export function SurfPage() {
   }, [spots]);
 
   return (
-    <main className="pb-4">
+    <main className="pb-4 bg-white">
       <div className="main-layout py-4">
         <h1 className="text-3xl">
           לרכוב על הגלים: נקודות גלישה בישראל

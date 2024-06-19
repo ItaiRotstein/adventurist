@@ -6,7 +6,7 @@ import Search from "../cmps/Search";
 
 export function HomePage() {
     return (
-        <main>
+        <main className="bg-white">
             <Hero />
             <Search />
             <Faq />

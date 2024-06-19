@@ -19,7 +19,6 @@ app.use('/api/email', require('./api/email/emailRoutes'));
 
 // Serve frontend
 if (process.env.NODE_ENV === 'production') {
-  console.log('yes production');
   app.use(express.static('public'));
   app.get('/**', (req, res) => {
     res.sendFile(
@@ -27,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
     );
   });
 }
-console.log(`Environment: ${process.env.NODE_ENV}`);
+console.log(`Backend Environment: ${process.env.NODE_ENV}`);
 app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

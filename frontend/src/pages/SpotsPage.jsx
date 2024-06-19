@@ -2,7 +2,6 @@
 import { useContext } from "react";
 
 import GoogleMaps from "../cmps/GoogleMaps";
-import { ShareButtons } from "../cmps/ShareButtons";
 import { HeroCircles } from "../cmps/HeroCircles";
 import { SpotPreview } from "../cmps/SpotPreview";
 import { SpotContext } from "../context/SpotContext";
@@ -11,7 +10,7 @@ export function SpotsPage() {
   const { spots } = useContext(SpotContext);
 
   return (
-    <main className="">
+    <main className="bg-white">
       <div id="top" className="bg-cover bg-center h-[350px] md:h-[380px] lg:h-[650px]"
         style={{ backgroundImage: `url('https://res.cloudinary.com/itai-rotstein/image/upload/v1718747643/Adventurist/hero_all_spots_wfcxav.jpg')` }}
       >
@@ -23,7 +22,6 @@ export function SpotsPage() {
         <p className="mt-4 ">
           פה תמצאו את מיטב ההרפתקאות והפעילויות שיש לישראל להציע. מאטרקציות טבע עוצרות נשימה ועד חוויות אקסטרים מרגשות, כאן תמצאו את כל מה שצריך כדי לתכנן את הטיול המושלם. התחילו לחקור את הפעילויות המובילות ובחרו את ההרפתקה הבאה שלכם!
         </p>
-        <ShareButtons />
       </div>
       <HeroCircles />
       <div className="main-layout">
@@ -35,7 +33,7 @@ export function SpotsPage() {
         </ul>
       </div>
       <div>
-        <GoogleMaps spots={spots}/>
+        <GoogleMaps spots={spots} />
       </div>
     </main>
   );

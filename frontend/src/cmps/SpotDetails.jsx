@@ -19,10 +19,10 @@ export function SpotDetails({ spot }) {
     return (
         <div className="mt-4">
             <h1 className="main-layout text-2xl py-4 font-bold text-center">{spot?.name}</h1>
-            <div className="main-layout flex justify-end items-center">
+            <div className="main-layout flex gap-2 justify-end items-center">
                 <ShareButtons />
-                <button className="mb-6 shadow p-2 rounded-full hover:brightness-75" onClick={toggleFavorite}>
-                    <Icon icon="FaHeart" className={`text-3xl ${isFavorite ? 'text-clr3' : 'text-gray-300'}`} />
+                <button className=" mb-6 shadow p-2 rounded-full hover:brightness-75" onClick={toggleFavorite}>
+                    <Icon icon="FaHeart" className={`text-[24px] ${isFavorite ? 'text-clr3' : 'text-gray-300'}`} />
                 </button>
             </div>
             <div className="w-full h-60">

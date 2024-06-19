@@ -31,7 +31,7 @@ export const SearchResultsPage = () => {
   }
 
   return (
-    <div className="main-layout">
+    <div className="main-layout bg-white">
       <ul>
         {results.map((result, index) => (
           <SpotPreview key={result._id} spot={result} />

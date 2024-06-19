@@ -5,7 +5,7 @@ import { Icon } from "../cmps/Icon";
 export const NotFoundPage = () => {
     return (
         <>
-            <section className="text-center flex flex-col justify-center items-center h-96">
+            <section className="items-center bg-white h-96 text-center flex flex-col justify-center ">
                 <Icon icon="FaExclamationTriangle" className="text-yellow-400 text-6xl mb-4"/>
                 <h1 className="text-4xl font-bold mb-4">404 שגיאה</h1>
                 <p className="text-xl mb-5">הדף הזה לא קיים</p>
