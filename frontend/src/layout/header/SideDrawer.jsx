@@ -34,7 +34,7 @@ export const SideDrawer = ({ isOpen, closeDrawer }) => {
               ref={searchInputRef}
               type="search"
               placeholder="חפש..."
-              className="w-full pr-10 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-clr3 focus:border-transparent"
+              className="w-full bg-white pr-10 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-clr3 focus:border-transparent"
             />
           </form>
           {/* Magnifying glass icon */}
