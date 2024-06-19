@@ -23,7 +23,7 @@ export const SpotPage = memo(() => {
     );
 
     return (
-        <div className="bg-white">
+        <div className="">
             <SpotDetails spot={selectedSpot} />
             <GoogleMaps spots={[selectedSpot]} />
             <SimilarSpots />

@@ -10,7 +10,7 @@ export function SpotsPage() {
   const { spots } = useContext(SpotContext);
 
   return (
-    <main className="bg-white">
+    <main className="">
       <div id="top" className="bg-cover bg-center h-[350px] md:h-[380px] lg:h-[650px]"
         style={{ backgroundImage: `url('https://res.cloudinary.com/itai-rotstein/image/upload/v1718747643/Adventurist/hero_all_spots_wfcxav.jpg')` }}
       >

@@ -27,7 +27,7 @@ export default function App() {
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <div className="flex-1">
+          <div className="flex-1 bg-white">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/spot/:id" element={<SpotPage />} />
