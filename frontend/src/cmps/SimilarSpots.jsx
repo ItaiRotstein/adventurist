@@ -17,10 +17,8 @@ export const SimilarSpots = () => {
       <h3 className="text-2xl">פעילויות דומות</h3>
       <div className="flex gap-2 overflow-x-auto no-scrollbar mx-auto">
         {similarSpots && similarSpots.map((spot) => (
-          // <SpotPreview key={spot._id} spot={spot} />
           <li key={spot._id} className="min-w-52 mb-4 flex flex-col justify-between py-8 px-4 list-none shadow-lg rounded">
             <Link to={`/spot/${spot._id}`}>
-              {/* <div className='flex flex-col justify-between gap-2'> */}
               <div className="relative w-full h-32">
                 <img
                   src={spot.img}
@@ -47,9 +45,8 @@ export const SimilarSpots = () => {
                         <div>
                             <Icon icon="FaPhone" className="inline text-clr4 me-1 text-sm" />
                             <p dir="ltr" className="inline text-sm">{spot.phone}</p>
-                        </div> */}
+                    </div> */}
               </div>
-              {/* </div> */}
             </Link>
           </li>
         ))}

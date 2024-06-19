@@ -35,7 +35,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section>
+        <section className="relative">
             <div ref={scrollContainerRef} style={{ overflowX: 'auto' }} className="w-full carousel relative">
                 {heroList.map((hero, index) =>
                     <div id={`item${index}`} key={hero + index} className="carousel-item w-full flex items-center bg-cover bg-center"
@@ -45,14 +45,14 @@ const Hero = () => {
                             <h1 className="text-5xl mt-10 text-right text-white">
                                 {hero.title}
                             </h1>
-                            <Link href={hero.buttonLink} className="btn-main my-12">
+                            <Link to={hero.buttonLink} className="btn-main my-12">
                                 לחץ כאן
                             </Link>
                         </div>
                     </div>
                 )}
             </div>
-            <div className="absolute top-[480px] flex justify-center w-full py-2 gap-3">
+            <div className="absolute bottom-0 flex justify-center w-full py-2 gap-3">
                 {heroList.map((_, idx) => (
                     <a
                         key={idx}
