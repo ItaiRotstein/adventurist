@@ -52,12 +52,12 @@ const Hero = () => {
                     </div>
                 )}
             </div>
-            <div className="absolute bottom-0 flex justify-center w-full py-2 gap-3">
+            <div className="absolute bottom-4 flex justify-center w-full py-2 gap-3">
                 {heroList.map((_, idx) => (
                     <a
                         key={idx}
                         href={`#item${idx}`}
-                        className={`${activeIndex === idx ? 'bg-clr3 scale-150' : 'bg-gray-200'} w-3 h-3 rounded-full  transition-all duration-300`}
+                        className={`${activeIndex === idx ? 'bg-clr3 scale-150' : 'bg-gray-200'} w-2 h-2 rounded-full  transition-all duration-300`}
                         onClick={() => setActiveIndex(idx)}
                     ></a>
                 ))}

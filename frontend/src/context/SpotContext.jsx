@@ -25,7 +25,7 @@ export const SpotProvider = ({ children }) => {
         const spot = await getSpotById(spotId);
         setSelectedSpot(spot);
         const filteredSpots = await getSimilarSpots(spot.kind);
-        setSimilarSpots(filteredSpots);
+        setSimilarSpots(filteredSpots.filter(spot => spot._id !== spotId));
     };
 
     const value = {
