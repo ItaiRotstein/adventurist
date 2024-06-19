@@ -31,7 +31,7 @@ export const NavbarMobile = ({ isMenuShow, setIsMenuShow }) => {
                         <Icon icon="IoLocationSharp" className="inline me-2 text-clr3 w-6 h-6" />
                         אזורים
                     </span>
-                    <Icon icon={isRegionsSubmenuVisible ? "IoChevronUp" : "IoChevronDown"} className="inline me-2 text-clr3 w-6 h-6" />
+                    <Icon icon={isRegionsSubmenuVisible ? "IoChevronUp" : "IoChevronDown"} className="inline text-clr3 w-6 h-6" />
                 </div>
                 {isRegionsSubmenuVisible && (
                     <ul className="pl-4 flex flex-col gap-4 mt-4">
