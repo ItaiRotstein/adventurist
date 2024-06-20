@@ -9,15 +9,18 @@ import GoogleMaps from '../cmps/GoogleMaps';
 export const SearchResultsPage = () => {
   const [results, setResults] = useState([]);
   const [loading, setIsLoading] = useState(true);
-
   const location = useLocation();
+
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get('q');
+  const kind = queryParams.get('kind');
+  const region = queryParams.get('region');
 
   useEffect(() => {
     const getResults = async () => {
       try {
-        const response = await getSearchResults(query);
+        // Pass both query and kind to the getSearchResults function
+        const response = await getSearchResults(query, kind, region);
         setResults(response);
         // Use the results in your component
       } catch (error) {
@@ -27,12 +30,10 @@ export const SearchResultsPage = () => {
         setIsLoading(false);
       }
     };
-    if (query) {
+    if (query || kind || region) {
       getResults();
-    } else {
-      setIsLoading(false);
     }
-  }, [query]);
+  }, [query, kind, region]); // Add kind to the dependency array to re-fetch when it changes
 
   if (loading) {
     return (

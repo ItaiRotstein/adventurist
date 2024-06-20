@@ -12,7 +12,7 @@ export function ClimbPage() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [pageSpots, setPageSpots] = useState([]);
 
-  const kind = 'climb';
+  const kind = 'טיפוס';
 
   useEffect(() => {
     setPageSpots(spots.filter(spot => spot.kind === kind));

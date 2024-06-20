@@ -59,7 +59,7 @@ export function SpotDetails({ spot }) {
                 </li>
                 {/* <li className="border-b py-3"><IoInformationCircleOutline className="inline me-2 w-6 h-6 text-clr4" /><strong>פרטים:</strong> לחץ כאן</li> */}
                 <li className="border-b py-3">
-                    <a href={`https://wa.me/${spot?.whatsapp}`} clsn>
+                    <a href={`https://wa.me/${spot?.whatsapp}`}>
                         <Icon icon="FaWhatsapp" className="inline me-2 w-6 h-6 text-clr4" />
                         <strong>וואטסאפ:</strong> {spot?.whatsapp}
                     </a>

@@ -12,7 +12,7 @@ export function ParaglidePage() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [pageSpots, setPageSpots] = useState([]);
 
-  const kind = 'paraglide';
+  const kind = 'פראגלייד';
 
   useEffect(() => {
     setPageSpots(spots.filter(spot => spot.kind === kind));

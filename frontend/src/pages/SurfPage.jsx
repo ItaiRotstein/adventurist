@@ -12,7 +12,7 @@ export function SurfPage() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [pageSpots, setPageSpots] = useState([]);
 
-  const kind = 'surf';
+  const kind = 'גלישה';
 
   useEffect(() => {
     setPageSpots(spots.filter(spot => spot.kind === kind));

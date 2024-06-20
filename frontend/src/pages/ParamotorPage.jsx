@@ -12,7 +12,7 @@ export function ParamotorPage() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [pageSpots, setPageSpots] = useState([]);
 
-  const kind = 'paramotor';
+  const kind = 'פראמוטור';
 
   useEffect(() => {
     setPageSpots(spots.filter(spot => spot.kind === kind));

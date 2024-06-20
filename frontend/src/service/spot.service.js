@@ -27,11 +27,21 @@ export const getSimilarSpots = async (kind) => {
     return await response.data;
 };
 
-//--Get spot search results--
-export const getSearchResults = async (term) => {
+//--Get search results--
+export const getSearchResults = async (term, kind, region) => {
     const config = {
-        params: term ? { term } : {}
+        params: {
+            ...(term && { term }),
+            ...(kind && { kind }),
+            ...(region && { region })
+        }
     };
     const response = await axios.get(`${API_URL}/spot/search`, config);
+    return await response.data;
+};
+
+//--Get all kinds--
+export const getAllKinds = async () => {
+    const response = await axios.get(`${API_URL}/spot/kinds`);
     return await response.data;
 };

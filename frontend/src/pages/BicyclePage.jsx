@@ -12,7 +12,7 @@ export function BicyclePage() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [pageSpots, setPageSpots] = useState([]);
 
-  const kind = 'bicycle';
+  const kind = 'אופניים';
 
   useEffect(() => {
     setPageSpots(spots.filter(spot => spot.kind === kind));

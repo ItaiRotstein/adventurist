@@ -31,7 +31,16 @@ export const SpotPreview = ({ spot, parentCmp }) => {
                         </div>
                         <div>
                             <Icon icon="TbWorldWww" className="inline text-clr4 me-1 text-sm" />
-                            <a onClick={(e) => { e.stopPropagation(); }} href={spot.website} target="_blank" dir="ltr" className="inline text-sm">{spot.website}</a>
+                            <button
+                                dir="ltr"
+                                className="inline text-sm"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    window.open(spot.website, '_blank');
+                                }}
+                            >
+                                {spot.website}
+                            </button>
                         </div>
                         <div>
                             <Icon icon="FaPhone" className="inline text-clr4 me-1 text-sm" />
