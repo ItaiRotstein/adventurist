@@ -67,7 +67,7 @@ body {
 .btn-main:hover {
     background-position: 100%;
 }
-
+/* 
 .gm-style-iw.gm-style-iw-c {
     flex-direction: row;
     justify-content: space-between;
@@ -96,4 +96,16 @@ body {
 .gm-style-iw-d {
 
     padding: 10px 0px 10px 10px;
+} */
+
+.gm-style-iw-ch {
+    display: none;
+}
+
+.gm-style-iw-chr {
+    display: none;
+}
+
+.gm-style .gm-style-iw-d {
+    overflow: hidden;
 }

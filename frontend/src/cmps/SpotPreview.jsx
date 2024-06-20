@@ -19,7 +19,7 @@ export const SpotPreview = ({ spot, parentCmp }) => {
                             className="object-cover w-full h-full rounded-sm"
                             loading="lazy"
                         />
-                            <Icon icon="FaHeart" className={`absolute top-4 left-4  text-2xl ${isFavorite ? 'text-clr3' : 'text-gray-300'}`} />
+                        <Icon icon="FaHeart" className={`absolute top-4 left-4  text-2xl ${isFavorite ? 'text-clr3' : 'text-gray-300'}`} />
                     </div>
                     <div className="w-full">
                         <span className="font-medium ">
@@ -31,7 +31,7 @@ export const SpotPreview = ({ spot, parentCmp }) => {
                         </div>
                         <div>
                             <Icon icon="TbWorldWww" className="inline text-clr4 me-1 text-sm" />
-                            <a href={spot.website} target="_blank" dir="ltr" className="inline text-sm">{spot.website}</a>
+                            <a onClick={(e) => { e.stopPropagation(); }} href={spot.website} target="_blank" dir="ltr" className="inline text-sm">{spot.website}</a>
                         </div>
                         <div>
                             <Icon icon="FaPhone" className="inline text-clr4 me-1 text-sm" />

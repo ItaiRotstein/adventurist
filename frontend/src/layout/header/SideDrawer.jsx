@@ -15,6 +15,7 @@ export const SideDrawer = ({ isOpen, closeDrawer }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!searchInputRef.current.value) return;
     const searchTerm = searchInputRef.current.value;
     closeDrawer();
     navigate(`search_results/?q=${encodeURIComponent(searchTerm)}`);
