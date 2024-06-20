@@ -14,7 +14,7 @@ export const SimilarSpots = () => {
   }
   return (
     <div className="mt-16">
-      <h3 className="text-2xl">פעילויות דומות</h3>
+      <h3 className="text-center text-2xl">פעילויות דומות</h3>
       <div className="flex gap-2 overflow-x-auto no-scrollbar mx-auto">
         {similarSpots && similarSpots.map((spot) => (
           <li key={spot._id} className="min-w-52 mb-4 flex flex-col justify-between py-8 px-4 list-none shadow-lg rounded">

@@ -19,9 +19,7 @@ export const SpotPreview = ({ spot, parentCmp }) => {
                             className="object-cover w-full h-full rounded-sm"
                             loading="lazy"
                         />
-                        <button className="absolute top-2 left-2 shadow p-2 rounded-full hover:brightness-75">
-                            <Icon icon="FaHeart" className={`text-2xl ${isFavorite ? 'text-clr3' : 'text-gray-300'}`} />
-                        </button>
+                            <Icon icon="FaHeart" className={`absolute top-4 left-4  text-2xl ${isFavorite ? 'text-clr3' : 'text-gray-300'}`} />
                     </div>
                     <div className="w-full">
                         <span className="font-medium ">

@@ -45,12 +45,23 @@ const getSimilarSpots = asyncHandler(async (req, res) => {
 // @route   GET /api/spot/search
 // @access  Private
 const getSearchResults = asyncHandler(async (req, res) => {
-  const results = await Spot.find(req.query.term ? { name: { $regex: req.query.term, $options: 'i' } } : {});
-  if (!results) {
-    res.status(400);
-    throw new Error('Spots not found');
+  const searchTerm = req.query.term;
+
+  // Build the query object
+  const query = searchTerm ? {
+    $or: [
+      { name: { $regex: searchTerm, $options: 'i' } },
+      { tags: { $regex: searchTerm, $options: 'i' } }
+    ]
+  } : {};
+
+  const results = await Spot.find(query);
+
+  if (!results || results.length === 0) {
+    res.status(404).json({ message: 'Spots not found' });
+    return;
   }
-  
+
   res.status(200).json(results);
 });
 
