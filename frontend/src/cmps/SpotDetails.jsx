@@ -1,9 +1,12 @@
 
 import { useState } from "react";
+
 import { Icon } from "./Icon";
 import { ShareButtons } from "./ShareButtons";
+
 export function SpotDetails({ spot }) {
     const [isFavorite, setIsFavorite] = useState(JSON.parse(localStorage.getItem('favorites'))?.includes(spot._id));
+    const [isShowMore, setIsShowMore] = useState(false);
 
     const toggleFavorite = () => {
         const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -84,75 +87,87 @@ export function SpotDetails({ spot }) {
                     <strong>רמה:</strong>
                     {spot?.level}
                 </li>
-                <li className="border-b py-3">
-                    <Icon icon="GiTeacher" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>מדריך:</strong>
-                    {spot?.instructor ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="MdGroups" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>קבוצות:</strong>
-                    {spot?.group ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="FaChildren" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>ילדים:</strong>
-                    {spot?.kids ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="TbDisabled" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>נגישות:</strong>
-                    {spot?.disabled ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="LuParkingCircle" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>חנייה:</strong>
-                    {spot?.parking ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="IoFastFoodOutline" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>אוכל:</strong>
-                    {spot?.food ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="FaShower" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>מקלחות:</strong>
-                    {spot?.shower ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="PiDress" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>שירותים:</strong>
-                    {spot?.toilet ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <strong>מלתחות:</strong>
-                    {spot?.changing ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="IoWalletOutline" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>אחסון חפצים אישיים:</strong>
-                    {spot?.storage ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="GiGlassCelebration" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>אופציה לארועים:</strong>
-                    {spot?.events ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="MdEmojiPeople" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>שיעורים:</strong>
-                    {spot?.lessons ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="CiShop" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>השכרת ציוד:</strong>
-                    {spot?.rentals ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
-                <li className="border-b py-3">
-                    <Icon icon="HiShoppingBag" className="inline me-2 w-6 h-6 text-clr4" />
-                    <strong>חנות:</strong>
-                    {spot?.shop ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                </li>
+                {isShowMore ? 
+                    (<>
+                        <li className="border-b py-3">
+                            <Icon icon="GiTeacher" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>מדריך:</strong>
+                            {spot?.instructor ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="MdGroups" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>קבוצות:</strong>
+                            {spot?.group ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="FaChildren" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>ילדים:</strong>
+                            {spot?.kids ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="TbDisabled" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>נגישות:</strong>
+                            {spot?.disabled ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="LuParkingCircle" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>חנייה:</strong>
+                            {spot?.parking ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="IoFastFoodOutline" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>אוכל:</strong>
+                            {spot?.food ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="FaShower" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>מקלחות:</strong>
+                            {spot?.shower ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="PiDress" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>שירותים:</strong>
+                            {spot?.toilet ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <strong>מלתחות:</strong>
+                            {spot?.changing ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="IoWalletOutline" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>אחסון חפצים אישיים:</strong>
+                            {spot?.storage ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="GiGlassCelebration" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>אופציה לארועים:</strong>
+                            {spot?.events ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="MdEmojiPeople" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>שיעורים:</strong>
+                            {spot?.lessons ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="CiShop" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>השכרת ציוד:</strong>
+                            {spot?.rentals ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        <li className="border-b py-3">
+                            <Icon icon="HiShoppingBag" className="inline me-2 w-6 h-6 text-clr4" />
+                            <strong>חנות:</strong>
+                            {spot?.shop ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
+                        </li>
+                        {/* <li className="border-b py-3">
+                            <button onClick={() => setIsShowMore(false)} className="text-clr4 font-bold">פחות פרטים</button>
+                        </li> */}
+                    </>
+                    ) : (
+                        <li className="border-b py-3">
+                            <button onClick={() => setIsShowMore(true)} className="text-clr4 font-bold">עוד פרטים</button>
+                        </li>
+                    )
+                }
             </ul>
         </div>
     );

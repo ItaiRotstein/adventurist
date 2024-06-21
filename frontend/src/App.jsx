@@ -20,6 +20,8 @@ import { CenterPage } from "./pages/CenterPage";
 import { SouthPage } from "./pages/SouthPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
+import { ExperiencePage } from "./pages/ExperiencePage";
+import { FavoritePage } from "./pages/FavoritePage";
 
 export default function App() {
   return (
@@ -40,6 +42,8 @@ export default function App() {
               <Route path="/region/צפון" element={<NorthPage />} />
               <Route path="/region/מרכז" element={<CenterPage />} />
               <Route path="/region/דרום" element={<SouthPage />} />
+              <Route path="/חוויות" element={<ExperiencePage />} />
+              <Route path="/מועדפים" element={<FavoritePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/search_results" element={<SearchResultsPage />} />

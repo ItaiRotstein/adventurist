@@ -1,4 +1,4 @@
-import { useEffect, useContext, memo } from "react";
+import { useEffect, useContext, memo, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { ClipLoader } from "react-spinners";
 
@@ -8,6 +8,7 @@ import { SimilarSpots } from "../cmps/SimilarSpots";
 import { SpotContext } from "../context/SpotContext";
 
 export const SpotPage = memo(() => {
+    const [isShowMap, setIsShowMap] = useState(false);
     const { id } = useParams();
     const { selectSpot, selectedSpot } = useContext(SpotContext);
 
@@ -25,7 +26,18 @@ export const SpotPage = memo(() => {
     return (
         <div className="">
             <SpotDetails spot={selectedSpot} />
-            <GoogleMaps spots={[selectedSpot]} />
+            <div className="form-control">
+                <label className="label cursor-pointer flex-col justify-center items-center gap-2">
+                    <span className="label-text">מפה</span>
+                    <input
+                        type="checkbox"
+                        className="toggle toggle-primary"
+                        checked={isShowMap}
+                        onChange={() => setIsShowMap(!isShowMap)}
+                    />
+                </label>
+            </div>
+            {isShowMap && <GoogleMaps spots={[selectedSpot]} />}
             <SimilarSpots />
         </div>
     );

@@ -12,10 +12,10 @@ export function BicyclePage() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [pageSpots, setPageSpots] = useState([]);
 
-  const kind = 'אופניים';
+  const type = 'אופניים';
 
   useEffect(() => {
-    setPageSpots(spots.filter(spot => spot.kind === kind));
+    setPageSpots(spots.filter(spot => spot.type === type));
   }, [spots]);
 
   return (
@@ -38,7 +38,7 @@ export function BicyclePage() {
       <div className="main-layout">
         <h2 className="text-2xl font-bold py-8">כל פעילויות האופניים</h2>
         <ul>
-          {pageSpots.map((spot) => spot.kind === kind && (
+          {pageSpots.map((spot) => spot.type === type && (
             <SpotPreview key={spot._id} spot={spot} />
           ))}
         </ul>

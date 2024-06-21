@@ -13,8 +13,11 @@ const IoWalletOutline = lazy(() => import('react-icons/io5').then(module => ({ d
 const IoMenu = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoMenu })));
 const IoSearch = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoSearch })));
 const IoHeart = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoHeart })));
+const IoHeartCircleOutline = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoHeartCircleOutline })));
 const IoChevronUp = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoChevronUp })));
 const IoChevronDown = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoChevronDown })));
+const IoStarOutline = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoStarOutline })));
+const IoThumbsUpOutline = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoThumbsUpOutline })));
 
 const TbWorldWww = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbWorldWww })));
 const TbDisabled = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbDisabled })));
@@ -42,9 +45,6 @@ const LuParkingCircle = lazy(() => import('react-icons/lu').then(module => ({ de
 const PiDress = lazy(() => import('react-icons/pi').then(module => ({ default: module.PiDress })));
 const HiShoppingBag = lazy(() => import('react-icons/hi2').then(module => ({ default: module.HiShoppingBag })));
 
-const MdOutlineLocalActivity = lazy(() => import('react-icons/md').then(module => ({ default: module.MdOutlineLocalActivity })));
-const MdOutlineRecommend = lazy(() => import('react-icons/md').then(module => ({ default: module.MdOutlineRecommend })));
-const IoLocationSharp = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoLocationSharp })));
 const IoIosInformationCircleOutline = lazy(() => import('react-icons/io').then(module => ({ default: module.IoIosInformationCircleOutline })));
 const BsQuestionSquare = lazy(() => import('react-icons/bs').then(module => ({ default: module.BsQuestionSquare })));
 const GrContact = lazy(() => import('react-icons/gr').then(module => ({ default: module.GrContact })));
@@ -65,8 +65,11 @@ export const Icon = memo(({ icon, className, onClick }) => (
     {icon === 'IoMenu' && <IoMenu className={className} onClick={onClick} />}
     {icon === 'IoSearch' && <IoSearch className={className} onClick={onClick} />}
     {icon === 'IoHeart' && <IoHeart className={className} onClick={onClick} />}
+    {icon === 'IoHeartCircleOutline' && <IoHeartCircleOutline className={className} onClick={onClick} />}
     {icon === 'IoChevronUp' && <IoChevronUp className={className} onClick={onClick} />}
     {icon === 'IoChevronDown' && <IoChevronDown className={className} onClick={onClick} />}
+    {icon === 'IoStarOutline' && <IoStarOutline className={className} onClick={onClick} />}
+    {icon === 'IoThumbsUpOutline' && <IoThumbsUpOutline className={className} onClick={onClick} />}
     {icon === 'TbWorldWww' && <TbWorldWww className={className} onClick={onClick} />}
     {icon === 'TbDisabled' && <TbDisabled className={className} onClick={onClick} />}
     {icon === 'CiShop' && <CiShop className={className} onClick={onClick} />}
@@ -87,9 +90,6 @@ export const Icon = memo(({ icon, className, onClick }) => (
     {icon === 'LuParkingCircle' && <LuParkingCircle className={className} onClick={onClick} />}
     {icon === 'PiDress' && <PiDress className={className} onClick={onClick} />}
     {icon === 'HiShoppingBag' && <HiShoppingBag className={className} onClick={onClick} />}
-    {icon === 'MdOutlineLocalActivity' && <MdOutlineLocalActivity className={className} onClick={onClick} />}
-    {icon === 'MdOutlineRecommend' && <MdOutlineRecommend className={className} onClick={onClick} />}
-    {icon === 'IoLocationSharp' && <IoLocationSharp className={className} onClick={onClick} />}
     {icon === 'IoIosInformationCircleOutline' && <IoIosInformationCircleOutline className={className} onClick={onClick} />}
     {icon === 'BsQuestionSquare' && <BsQuestionSquare className={className} onClick={onClick} />}
     {icon === 'GrContact' && <GrContact className={className} onClick={onClick} />}
