@@ -5,14 +5,14 @@ const {
   getSpotById,
   getSearchResults,
   getSimilarSpots,
-  getAllKinds
+  getAllTypes
 } = require('./spotController');
 
 router.get('/', getSpots);
 router.get('/search', getSearchResults);
-router.get('/kinds', getAllKinds);
+router.get('/types', getAllTypes);
 router.get('/:id', getSpotById);
-router.get('/kind/:kind', getSimilarSpots);
+router.get('/type/:type', getSimilarSpots);
 
 
 module.exports = router;

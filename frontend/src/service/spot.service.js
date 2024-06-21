@@ -7,9 +7,9 @@ const API_URL = (import.meta.env.VITE_NODE_ENV === 'production')
 console.log('Frontend Environment:', import.meta.env.VITE_NODE_ENV);
 
 //--Get spots--
-export const getSpots = async (kind) => {
+export const getSpots = async (type) => {
     const config = {
-        params: kind ? { kind } : {}
+        params: type ? { type } : {}
     };
     const response = await axios.get(`${API_URL}/spot`, config);
     return await response.data;
@@ -22,17 +22,17 @@ export const getSpotById = async (_id) => {
 };
 
 //--Get similar spots--
-export const getSimilarSpots = async (kind) => {
-    const response = await axios.get(`${API_URL}/spot/kind/${kind}`);
+export const getSimilarSpots = async (type) => {
+    const response = await axios.get(`${API_URL}/spot/type/${type}`);
     return await response.data;
 };
 
 //--Get search results--
-export const getSearchResults = async (term, kind, region) => {
+export const getSearchResults = async (term, type, region) => {
     const config = {
         params: {
             ...(term && { term }),
-            ...(kind && { kind }),
+            ...(type && { type }),
             ...(region && { region })
         }
     };
@@ -40,8 +40,8 @@ export const getSearchResults = async (term, kind, region) => {
     return await response.data;
 };
 
-//--Get all kinds--
-export const getAllKinds = async () => {
-    const response = await axios.get(`${API_URL}/spot/kinds`);
+//--Get all types--
+export const getAllTypes = async () => {
+    const response = await axios.get(`${API_URL}/spot/types`);
     return await response.data;
 };

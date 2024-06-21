@@ -5,7 +5,7 @@ const Spot = require('../../models/spotModel');
 // @route   GET /api/spot
 // @access  Private
 const getSpots = asyncHandler(async (req, res) => {
-  const spot = await Spot.find(req.query.kind ? { kind: req.query.kind } : {});
+  const spot = await Spot.find(req.query.type ? { type: req.query.type } : {});
   if (!spot) {
     res.status(400);
     throw new Error('Spots not found');
@@ -28,11 +28,11 @@ const getSpotById = asyncHandler(async (req, res) => {
 });
 
 // @desc    Get similar spots
-// @route   GET /api/spot/similar/:kind
+// @route   GET /api/spot/similar/:type
 // @access  Private
 const getSimilarSpots = asyncHandler(async (req, res) => {
 
-  const spots = await Spot.find({ kind: req.params.kind });
+  const spots = await Spot.find({ type: req.params.type });
   if (!spots) {
     res.status(400);
     throw new Error('Spot not found');
@@ -45,7 +45,7 @@ const getSimilarSpots = asyncHandler(async (req, res) => {
 // @route   GET /api/spot/search
 // @access  Private
 const getSearchResults = asyncHandler(async (req, res) => {
-  const { term, kind, region } = req.query; 
+  const { term, type, region } = req.query; 
 
   let query = {};
   if (term) {
@@ -55,11 +55,11 @@ const getSearchResults = asyncHandler(async (req, res) => {
       ...words.map(word => ({ tags: { $regex: word, $options: 'i' } }))
     ];
   }
-  if (kind) {
-    query.kind = kind;
+  if (type) {
+    query.type = type;
   }
   if (region) {
-    query.area = region;
+    query.region = region;
   }
 
   const results = await Spot.find(query);
@@ -72,36 +72,36 @@ const getSearchResults = asyncHandler(async (req, res) => {
   res.status(200).json(results);
 });
 
-// @desc    Get all kinds
-// @route   GET /api/spot/kinds
+// @desc    Get all types
+// @route   GET /api/spot/types
 // @access  Private
-const getAllKinds = async (req, res) => {
+const getAllTypes = async (req, res) => {
   try {
-    const kinds = await Spot.aggregate([
+    const types = await Spot.aggregate([
       {
         $group: {
-          _id: "$kind",
+          _id: "$type",
           count: { $sum: 1 }
         }
       },
       {
-        $sort: { _id: 1 } // Optional: Sort the kinds alphabetically
+        $sort: { _id: 1 } // Optional: Sort the types alphabetically
       }
     ]);
 
 
-    if (!kinds || kinds.length === 0) {
-      res.status(404).json({ message: 'No kinds found' });
+    if (!types || types.length === 0) {
+      res.status(404).json({ message: 'No types found' });
       return;
     }
 
-    // Transform the result to return an array of kinds only
-    const kindList = kinds.map(kind => kind._id);
+    // Transform the result to return an array of types only
+    const typeList = types.map(type => type._id);
 
-    res.status(200).json(kindList);
+    res.status(200).json(typeList);
   } catch (error) {
-    console.error('Failed to get kinds:', error);
-    res.status(500).json({ message: 'Failed to get kinds' });
+    console.error('Failed to get types:', error);
+    res.status(500).json({ message: 'Failed to get types' });
   }
 };
 
@@ -112,5 +112,5 @@ module.exports = {
   getSpotById,
   getSearchResults,
   getSimilarSpots,
-  getAllKinds
+  getAllTypes
 };

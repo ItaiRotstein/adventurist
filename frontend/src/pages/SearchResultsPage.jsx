@@ -5,6 +5,7 @@ import { getSearchResults } from '../service/spot.service';
 import { SpotPreview } from "../cmps/SpotPreview";
 import { ClipLoader } from 'react-spinners';
 import GoogleMaps from '../cmps/GoogleMaps';
+import Search from "../cmps/Search";
 
 export const SearchResultsPage = () => {
   const [results, setResults] = useState([]);
@@ -13,16 +14,14 @@ export const SearchResultsPage = () => {
 
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get('q');
-  const kind = queryParams.get('kind');
+  const type = queryParams.get('type');
   const region = queryParams.get('region');
 
   useEffect(() => {
     const getResults = async () => {
       try {
-        // Pass both query and kind to the getSearchResults function
-        const response = await getSearchResults(query, kind, region);
+        const response = await getSearchResults(query, type, region);
         setResults(response);
-        // Use the results in your component
       } catch (error) {
         console.log("Error fetching search results", error);
         setResults([]);
@@ -30,10 +29,10 @@ export const SearchResultsPage = () => {
         setIsLoading(false);
       }
     };
-    if (query || kind || region) {
+    if (query || type || region) {
       getResults();
     }
-  }, [query, kind, region]); // Add kind to the dependency array to re-fetch when it changes
+  }, [query, type, region]);
 
   if (loading) {
     return (
@@ -51,6 +50,7 @@ export const SearchResultsPage = () => {
 
   return (
     <div className="main-layout">
+      <Search parent='SearchResultsPage' />
       <h1 className="text-2xl text-center">תוצאות חיפוש</h1>
       <ul>
         {results.map((result, index) => (

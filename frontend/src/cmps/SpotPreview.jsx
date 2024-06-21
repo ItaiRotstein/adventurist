@@ -35,7 +35,8 @@ export const SpotPreview = ({ spot, parentCmp }) => {
                                 dir="ltr"
                                 className="inline text-sm"
                                 onClick={(e) => {
-                                    e.stopPropagation();
+                                    // e.stopPropagation();
+                                    e.preventDefault();
                                     window.open(spot.website, '_blank');
                                 }}
                             >

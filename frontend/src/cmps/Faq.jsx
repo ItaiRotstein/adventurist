@@ -1,6 +1,6 @@
 const Faq = () => {
   return (
-    <section id="faq" className="w-full max-w-4xl mx-auto p-4 bg-clr7">
+    <section id="faq" className="w-full max-w-4xl mx-auto pt-8 pb-4 px-4 bg-clr7">
       <h2 className="text-3xl text-center font-medium mb-6">שאלות נפוצות</h2>
       <hr className="border-t-2 border-clr8 w-[10%] mx-auto my-8" />
       <div className="collapse-group">

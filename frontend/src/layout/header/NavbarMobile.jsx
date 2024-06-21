@@ -42,9 +42,9 @@ export const NavbarMobile = ({ isMenuShow, setIsMenuShow }) => {
                 )}
             </li>
             <li className="border-b py-6">
-                <Link onClick={handleClick} className=" hover:underline" to="#size">
+                <Link onClick={handleClick} className=" hover:underline" to="/חוויות">
                     <Icon icon="MdOutlineRecommend" className="inline me-2 text-clr3 w-6 h-6" />
-                    המלצות
+                    חוויות
                 </Link>
             </li>
             <li className="border-b py-6">

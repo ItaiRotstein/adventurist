@@ -8,7 +8,7 @@ export function HomePage() {
     return (
         <main className="">
             <Hero />
-            <Search />
+            <Search parent='HomePage'/>
             <Faq />
             <Contact />
         </main>
