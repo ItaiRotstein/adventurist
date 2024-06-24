@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { ClipLoader } from "react-spinners";
 import { sendContactEmail } from "../service/email.service";
-
+import { Icon } from "../cmps/Icon";
 const Contact = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -25,8 +25,8 @@ const Contact = () => {
             phone,
             message,
         };
-        
-        const res = await sendContactEmail(formData)
+
+        const res = await sendContactEmail(formData);
 
         if (res.status !== 200) {
             toast.error('הטופס לא נשלח');
@@ -48,6 +48,22 @@ const Contact = () => {
                 <hr className="border-t-2 w-1/5 mx-auto mt-8" />
             </div>
             <div>
+                <div className="main-layout mb-8 rounded">
+                    <h3 className="text-xl font-bold">אימייל</h3>
+                    <p className="pb-4"><a href="mailto:info@adventurist.co.il">info@adventurist.co.il</a></p>
+                    <h3 className="text-xl font-bold">רשתות חברתיות</h3>
+                    <div className="flex gap-4 items-center">
+                        <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer">
+                            <Icon icon="IoLogoFacebook" className="text-3xl text-[#1877F2]" />
+                        </a>
+                        <a className="instagram-icon" href="https://www.instagram.com/yourpage" target="_blank" rel="noopener noreferrer">
+                            <Icon icon="IoLogoInstagram" className="text-3xl" />
+                        </a>
+                        <a href="https://www.twitter.com/yourpage" target="_blank" rel="noopener noreferrer">
+                            <Icon icon="IoLogoTwitter" className="text-3xl text-[#1DA1F2]" />
+                        </a>
+                    </div>
+                </div>
                 <form onSubmit={onHandleSubmit} className="text-center">
                     <div className="flex flex-col md:flex-row md:flex-wrap justify-center gap-3 px-8 sm:px-16 md:px-32 lg:px-52 xl:px-64 ">
                         <input required onChange={(e) => setFirstName(e.target.value)} value={firstName} className="md:w-[48%] bg-gray-100 rounded border-2 p-4" placeholder="שם*" type="text" />

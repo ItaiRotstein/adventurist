@@ -4,6 +4,7 @@ import { Icon } from "../cmps/Icon";
 import { useState } from "react";
 
 export const SpotPreview = ({ spot, parentCmp }) => {
+    console.log('SpotPreview', spot);
     const [isFavorite] = useState(JSON.parse(localStorage.getItem('favorites'))?.includes(spot._id));
 
     // const style = parentCmp === 'SpotsPage' ? 'flex-row' : 'flex-col';

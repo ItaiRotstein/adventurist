@@ -18,6 +18,8 @@ const IoChevronUp = lazy(() => import('react-icons/io5').then(module => ({ defau
 const IoChevronDown = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoChevronDown })));
 const IoStarOutline = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoStarOutline })));
 const IoThumbsUpOutline = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoThumbsUpOutline })));
+const IoCalendarClearOutline = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoCalendarClearOutline })));
+const IoPersonCircle = lazy(() => import('react-icons/io5').then(module => ({ default: module.IoPersonCircle })));
 
 const TbWorldWww = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbWorldWww })));
 const TbDisabled = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbDisabled })));
@@ -51,7 +53,7 @@ const GrContact = lazy(() => import('react-icons/gr').then(module => ({ default:
 const TiBusinessCard = lazy(() => import('react-icons/ti').then(module => ({ default: module.TiBusinessCard })));
 
 export const Icon = memo(({ icon, className, onClick }) => (
-  <Suspense fallback={<div className={className}></div>}>
+  <Suspense fallback={<div style={{ width: '24px', height: '24px', backgroundColor: '#ccc', borderRadius: '50%' }}></div>}>
     {icon === 'IoLogoFacebook' && <IoLogoFacebook className={className} onClick={onClick} />}
     {icon === 'IoLogoInstagram' && <IoLogoInstagram className={className} onClick={onClick} />}
     {icon === 'IoLogoTwitter' && <IoLogoTwitter className={className} onClick={onClick} />}
@@ -70,6 +72,8 @@ export const Icon = memo(({ icon, className, onClick }) => (
     {icon === 'IoChevronDown' && <IoChevronDown className={className} onClick={onClick} />}
     {icon === 'IoStarOutline' && <IoStarOutline className={className} onClick={onClick} />}
     {icon === 'IoThumbsUpOutline' && <IoThumbsUpOutline className={className} onClick={onClick} />}
+    {icon === 'IoCalendarClearOutline' && <IoCalendarClearOutline className={className} onClick={onClick} />}
+    {icon === 'IoPersonCircle' && <IoPersonCircle className={className} onClick={onClick} />}
     {icon === 'TbWorldWww' && <TbWorldWww className={className} onClick={onClick} />}
     {icon === 'TbDisabled' && <TbDisabled className={className} onClick={onClick} />}
     {icon === 'CiShop' && <CiShop className={className} onClick={onClick} />}

@@ -1,23 +1,29 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { getSpots, getSpotById, getSimilarSpots } from "../service/spot.service";
+import { getSpots, getSpotById, getSimilarSpots, getAllTypes } from "../service/spot.service";
 export const SpotContext = createContext();
 
 export const SpotProvider = ({ children }) => {
     const [spots, setSpots] = useState([]);
     const [selectedSpot, setSelectedSpot] = useState(null);
     const [similarSpots, setSimilarSpots] = useState([]);
+    const [types, setTypes] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const fetchSpots = async () => {
+        const fetchData = async () => {
+            setIsLoading(true); 
             try {
-                const spots = await getSpots();
-                setSpots(spots);
+                const [spotsResponse, typesResponse] = await Promise.all([getSpots(), getAllTypes()]);
+                setSpots(spotsResponse);
+                setTypes(typesResponse);
             } catch (error) {
-                console.log("Error fetching spots", error);
-            };
+                console.log("Error fetching data", error);
+            } finally {
+                setIsLoading(false); 
+            }
         };
-
-        fetchSpots();
+    
+        fetchData();
     }, []);
 
 
@@ -32,7 +38,9 @@ export const SpotProvider = ({ children }) => {
         spots,
         selectedSpot,
         selectSpot,
-        similarSpots
+        similarSpots,
+        types, 
+        isLoading
     };
 
     return (

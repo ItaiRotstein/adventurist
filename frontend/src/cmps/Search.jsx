@@ -1,29 +1,27 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { getAllTypes } from "../service/spot.service";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import { SpotContext } from "../context/SpotContext";
 
 const Search = ({ parent }) => {
+    const { types, isLoading } = useContext(SpotContext);
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
     const [searchTerm, setSearchTerm] = useState('');
     const [region, setRegion] = useState('');
-    const [type, setType] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
-    const [types, setTypes] = useState([]);
+    const [type, setType] = useState(queryParams.get('type') || '');
     const navigate = useNavigate();
 
+    const queryFromUrl = queryParams.get('q');
+    const typeFromUrl = queryParams.get('type');
+    const regionFromUrl = queryParams.get('region');
+
     useEffect(() => {
-        const getTypes = async () => {
-            try {
-                const response = await getAllTypes();
-                setTypes(response);
-            } catch (error) {
-                console.log("Error fetching types", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        getTypes();
-    }, []);
+        if (queryFromUrl) setSearchTerm(queryParams.get('q'));
+        if (regionFromUrl) setRegion(queryParams.get('region'));
+        if (typeFromUrl) setType(queryParams.get('type'));
+
+    }, [queryFromUrl, typeFromUrl, regionFromUrl]);
 
     function handleSubmit(e) {
         e.preventDefault();

@@ -5,23 +5,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Footer } from "./layout/Footer";
 import { Header } from "./layout/header/Header";
 import { HomePage } from "./pages/HomePage";
-import { SurfPage } from "./pages/SurfPage";
-import { ClimbPage } from "./pages/ClimbPage";
-import { ParamotorPage } from "./pages/ParamotorPage";
 import { SpotsPage } from "./pages/SpotsPage";
 import { SearchResultsPage } from "./pages/SearchResultsPage";
 import { SpotPage } from "./pages/SpotPage";
-import { ParaglidePage } from "./pages/ParaglidePage";
-import { BicyclePage } from "./pages/BicyclePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { SpotProvider } from './context/SpotContext';
-import { NorthPage } from "./pages/NorthPage";
-import { CenterPage } from "./pages/CenterPage";
-import { SouthPage } from "./pages/SouthPage";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
-import { ExperiencePage } from "./pages/ExperiencePage";
+import { PostsPage } from "./pages/post/PostsPage";
 import { FavoritePage } from "./pages/FavoritePage";
+import { PostPage } from "./pages/post/PostPage";
+import { ActivityTypePage } from "./pages/ActivityTypePage";
 
 export default function App() {
   return (
@@ -31,19 +25,13 @@ export default function App() {
           <Header />
           <div className="flex-1 bg-white">
             <Routes>
+              <Route path="/activity/:type" element={<ActivityTypePage />} />
               <Route path="/" element={<HomePage />} />
               <Route path="/spot/:id" element={<SpotPage />} />
-              <Route path="/פעילות/גלישה" element={<SurfPage />} />
-              <Route path="/פעילות/טיפוס" element={<ClimbPage />} />
-              <Route path="/פעילות/מצנח-ממונע" element={<ParamotorPage />} />
-              <Route path="/פעילות/מצנח-רחיפה" element={<ParaglidePage />} />
-              <Route path="/פעילות/אופניים" element={<BicyclePage />} />
-              <Route path="/פעילויות/" element={<SpotsPage />} />
-              <Route path="/region/צפון" element={<NorthPage />} />
-              <Route path="/region/מרכז" element={<CenterPage />} />
-              <Route path="/region/דרום" element={<SouthPage />} />
-              <Route path="/חוויות" element={<ExperiencePage />} />
-              <Route path="/מועדפים" element={<FavoritePage />} />
+              <Route path="/spots/" element={<SpotsPage />} />
+              <Route path="/blog" element={<PostsPage />} />
+              <Route path="/post/:id" element={<PostPage />} />
+              <Route path="/favorites" element={<FavoritePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/search_results" element={<SearchResultsPage />} />

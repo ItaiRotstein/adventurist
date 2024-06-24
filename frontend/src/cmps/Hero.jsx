@@ -38,14 +38,14 @@ const Hero = () => {
         <section className="relative">
             <div ref={scrollContainerRef} style={{ overflowX: 'auto' }} className="w-full carousel relative">
                 {heroList.map((hero, index) =>
-                    <div id={`item${index}`} key={hero + index} className="carousel-item w-full flex items-center bg-cover bg-center"
+                    <div id={`item${index}`} key={hero + index} className="carousel-item w-full h-96 bg-cover bg-center"
                         style={{ backgroundImage: `url(${hero.image})` }}
                     >
                         <div className="ps-8 pe-32">
-                            <h1 className="text-5xl mt-10 text-right text-white">
+                            <h1 className="text-4xl font-bold mt-10 mb-6 text-right text-white">
                                 {hero.title}
                             </h1>
-                            <Link to={hero.buttonLink} className="btn-main my-12">
+                            <Link to={hero.buttonLink} className="btn-main">
                                 לחץ כאן
                             </Link>
                         </div>

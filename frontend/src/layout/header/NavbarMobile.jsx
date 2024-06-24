@@ -19,7 +19,7 @@ export const NavbarMobile = ({ isMenuShow, setIsMenuShow }) => {
     return (
         <ul className={`lg:hidden fixed ${isMenuShow ? 'left-0' : '-left-full'} top-[76px] pt-6 w-full h-full flex flex-col main-layout tracking-widest text-black text-xl font-semibold bg-white transition-all duration-300 z-100`}>
             <li className="border-b py-6">
-                <Link to={"/פעילויות"} onClick={handleClick} className=" hover:underline">
+                <Link to={"/spots"} onClick={handleClick} className=" hover:underline">
                     <Icon icon="IoStarOutline" className="inline me-2 text-clr3 w-6 h-6" />
                     כל הפעילויות
                 </Link>
@@ -35,14 +35,14 @@ export const NavbarMobile = ({ isMenuShow, setIsMenuShow }) => {
                 </div>
                 {isRegionsSubmenuVisible && (
                     <ul className="pl-4 flex flex-col gap-4 mt-4">
-                        <li><Link className="ps-8 hover:underline" to="/region/צפון" onClick={handleClick}>צפון</Link></li>
-                        <li><Link className="ps-8 hover:underline" to="/region/מרכז" onClick={handleClick}>מרכז</Link></li>
-                        <li><Link className="ps-8 hover:underline" to="/region/דרום" onClick={handleClick}>דרום</Link></li>
+                        <li><Link className="ps-8 hover:underline" to={`/search_results/?region=${encodeURIComponent('צפון')}`} onClick={handleClick}>צפון</Link></li>
+                        <li><Link className="ps-8 hover:underline" to={`/search_results/?region=${encodeURIComponent('מרכז')}`} onClick={handleClick}>מרכז</Link></li>
+                        <li><Link className="ps-8 hover:underline" to={`/search_results/?region=${encodeURIComponent('דרום')}`} onClick={handleClick}>דרום</Link></li>
                     </ul>
                 )}
             </li>
             <li className="border-b py-6">
-                <Link onClick={handleClick} className=" hover:underline" to="/חוויות">
+                <Link onClick={handleClick} className=" hover:underline" to="/blog">
                     <Icon icon="IoThumbsUpOutline" className="inline me-2 text-clr3 w-6 h-6" />
                     חוויות
                 </Link>
@@ -54,7 +54,7 @@ export const NavbarMobile = ({ isMenuShow, setIsMenuShow }) => {
                 </Link>
             </li>
             <li className="border-b py-6">
-                <Link onClick={handleClick} className=" hover:underline" to="/מועדפים">
+                <Link onClick={handleClick} className=" hover:underline" to="/favorites">
                 <Icon icon="IoHeartCircleOutline" className="inline me-2 text-clr3 w-6 h-6" />
                 מועדפים
                 </Link>

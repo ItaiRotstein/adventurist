@@ -18,6 +18,7 @@ export const SearchResultsPage = () => {
   const region = queryParams.get('region');
 
   useEffect(() => {
+    setIsLoading(true);
     const getResults = async () => {
       try {
         const response = await getSearchResults(query, type, region);

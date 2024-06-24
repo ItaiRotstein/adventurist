@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/spot', require('./api/spot/spotRoutes'));
+app.use('/api/post', require('./api/post/postRoutes'));
 app.use('/api/email', require('./api/email/emailRoutes'));
 
 // Serve frontend

@@ -35,20 +35,20 @@ export const ShareButtons = () => {
       }
 
           <div className="">
-            <EmailShareButton
+            <EmailShareButton className={`absolute top-0 ${isShareMenuOpen ? 'left-[45px] z-0 ' : 'left-0 -z-10 '} transition-all text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`}
               url={window.location.href}
               subject="כדאי לך לבדוק את האתר הזה"
             >
-              <EmailIcon className={`absolute top-0 ${isShareMenuOpen ? 'left-[45px] z-0 opacity-100' : 'left-0 -z-10 opacity-0'} transition-all text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} />
+              <EmailIcon className={`text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} />
             </EmailShareButton>
-            <FacebookShareButton url={window.location.href}>
-              <FacebookIcon className={`absolute top-0 ${isShareMenuOpen ? 'left-[90px] z-0 opacity-100' : 'left-0 -z-10 opacity-0'} transition-all text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} />
+            <FacebookShareButton className={`absolute top-0 ${isShareMenuOpen ? 'left-[90px] z-0 ' : 'left-0 -z-10 '} transition-all text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} url={window.location.href}>
+              <FacebookIcon className={`text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} />
             </FacebookShareButton>
-            <TwitterShareButton url={window.location.href}>
-              <TwitterIcon className={`absolute top-0 ${isShareMenuOpen ? 'left-[135px] z-0 opacity-100' : 'left-0 -z-10 opacity-0'} transition-all text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} />
+            <TwitterShareButton className={`absolute top-0 ${isShareMenuOpen ? 'left-[135px] z-0 ' : 'left-0 -z-10 '} transition-all text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} url={window.location.href}>
+              <TwitterIcon className={` text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} />
             </TwitterShareButton>
-            <WhatsappShareButton url={window.location.href}>
-              <WhatsappIcon className={`absolute top-0 ${isShareMenuOpen ? 'left-[180px] z-0 opacity-100' : 'left-0 -z-10 opacity-0'} transition-all text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} />
+            <WhatsappShareButton className={`absolute top-0 ${isShareMenuOpen ? 'left-[180px] z-0 ' : 'left-0 -z-10 '} transition-all text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} url={window.location.href}>
+              <WhatsappIcon className={` text-clr3 hover:brightness-90 p-2 w-10 h-10 ms-auto border rounded-full shadow`} />
             </WhatsappShareButton>
           </div>
 
