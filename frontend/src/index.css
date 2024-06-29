@@ -24,8 +24,8 @@ body {
 }
 
 .main-layout {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 @media (min-width: 768px) {
@@ -50,12 +50,18 @@ body {
 
 .btn-main {
     border-radius: 30px;
-    background-color: #f58629;
+    /* background-color: #f58629; */
+    background-image: linear-gradient(to bottom, #F39200 0%, #F77A40 100%);
+    /* background-image: -webkit-gradient(linear, left top, left bottom, from(#F39200), to(#F77A40)); */
     color: white;
     padding: 7px 20px;
     cursor: pointer;
     font-size: 1rem;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
 }
 
 /* map marker info window */

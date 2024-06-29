@@ -13,9 +13,13 @@ export const SpotProvider = ({ children }) => {
         const fetchData = async () => {
             setIsLoading(true); 
             try {
-                const [spotsResponse, typesResponse] = await Promise.all([getSpots(), getAllTypes()]);
+                const spotsResponse = await getSpots();
+                spotsResponse.sort((a, b) => a.name.localeCompare(b.name));
                 setSpots(spotsResponse);
-                setTypes(typesResponse);
+    
+                // Extract types from spots
+                const extractedTypes = [...new Set(spotsResponse.map(spot => spot.type).flat())];
+                setTypes(extractedTypes);
             } catch (error) {
                 console.log("Error fetching data", error);
             } finally {

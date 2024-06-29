@@ -11,8 +11,8 @@ const containerStyle = {
 };
 
 const center = {
-    lat: 32.36,
-    lng: 34.96
+    lat: 31.383610133372072, 
+    lng: 34.95811282122621
 };
 
 function GoogleMaps({ spots }) {
@@ -28,7 +28,7 @@ function GoogleMaps({ spots }) {
     const onLoad = useCallback(function callback(map) {
         // This is just an example of getting and using the map instance!!! don't just blindly copy!
         const bounds = new window.google.maps.LatLngBounds(center);
-        map.setZoom(7);
+        map.setZoom(6.5);
 
         setMap(map);
     }, []);

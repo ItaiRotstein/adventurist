@@ -45,7 +45,7 @@ const getSimilarSpots = asyncHandler(async (req, res) => {
 // @route   GET /api/spot/search
 // @access  Private
 const getSearchResults = asyncHandler(async (req, res) => {
-  const { term, type, region } = req.query; 
+  const { term, type, region } = req.query;
 
   let query = {};
   if (term) {
@@ -78,6 +78,9 @@ const getSearchResults = asyncHandler(async (req, res) => {
 const getAllTypes = async (req, res) => {
   try {
     const types = await Spot.aggregate([
+      {
+        $unwind: "$type" // Unwind the type array to treat each element as a separate document
+      },
       {
         $group: {
           _id: "$type",

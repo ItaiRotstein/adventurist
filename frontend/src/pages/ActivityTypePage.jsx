@@ -1,14 +1,15 @@
 
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
-import GoogleMaps from "../cmps/GoogleMaps";
+// import GoogleMaps from "../cmps/GoogleMaps";
 import { ShareButtons } from "../cmps/ShareButtons";
 import { SpotDetails } from "../cmps/SpotDetails";
 import { SpotPreview } from "../cmps/SpotPreview";
 import { SpotContext } from "../context/SpotContext";
+
 import { activityTypes } from "../activityTypes";
-import { ClipLoader } from "react-spinners";
 
 export function ActivityTypePage() {
     const { spots } = useContext(SpotContext);
@@ -25,7 +26,7 @@ export function ActivityTypePage() {
             navigate('/not-found'); // Redirect to NotFound page if activity is not found
         } else {
             setPageActivity(foundActivity);
-            setPageSpots(spots.filter(spot => spot.type === foundActivity.typeHebrew));
+            setPageSpots(spots.filter(spot => spot.type.includes(foundActivity.typeHebrew)));
         }
     }, [spots, type, navigate]);
 
@@ -60,9 +61,9 @@ export function ActivityTypePage() {
                     ))}
                 </ul>
             </div>
-            <div>
+            {/* <div>
                 <GoogleMaps spots={pageSpots} setSelectedMarker={setSelectedMarker} />
-            </div>
+            </div> */}
             {selectedMarker && <SpotDetails spot={selectedMarker} />}
         </main>
     );

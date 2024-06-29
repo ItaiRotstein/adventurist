@@ -4,7 +4,8 @@ import { ClipLoader } from "react-spinners";
 import { SpotContext } from "../context/SpotContext";
 
 const Search = ({ parent }) => {
-    const { types, isLoading } = useContext(SpotContext);
+    const { types, isLoading} = useContext(SpotContext);
+    // const isLoading = true
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const [searchTerm, setSearchTerm] = useState('');
@@ -60,8 +61,8 @@ const Search = ({ parent }) => {
             </div>
             {
                 isLoading ? (
-                    <div className="flex justify-center items-center bg-gray-100 w-full p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-clr3 focus:border-transparent">
-                        <ClipLoader size={23} />
+                    <div className="skeleton flex justify-center items-center bg-gray-100 w-full h-[43.5px] p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-clr3 focus:border-transparent">
+                        {/* <ClipLoader size={23} /> */}
                     </div>
                 ) : (
                     <select
@@ -86,7 +87,7 @@ const Search = ({ parent }) => {
                 <option value="דרום">דרום</option>
                 <option value="מרכז">מרכז</option>
             </select>
-            <button type="submit" className="bg-clr3 text-white w-1/2 py-2 rounded-full hover:brightness-75 shadow">חפש</button>
+            <button type="submit" className="btn-main mb-4">חפש</button>
         </form>
     );
 };

@@ -34,5 +34,15 @@ export const heroList = [
         image: "https://res.cloudinary.com/itai-rotstein/image/upload/v1719263320/Adventurist/windsurf_hero_dark_tw9z7c.jpg",
         title: 'גלישת רוח עם מדריך מקצועי',
         buttonLink: '/activity/windsurf',
-    }
+    },
+    {
+        image: "https://res.cloudinary.com/itai-rotstein/image/upload/v1719321053/Adventurist/kitesurf_hero_6_feuj8p.jpg",
+        title: 'גלישת קייט עם מדריך מקצועי',
+        buttonLink: '/activity/kitesurf',
+    },
+    {
+        image: "https://res.cloudinary.com/itai-rotstein/image/upload/v1719391165/Adventurist/rafting_hero_7_je3lyb.jpg",
+        title: 'רפטינג סוער בנהר בירדן',
+        buttonLink: '/activity/kitesurf',
+    },
 ];

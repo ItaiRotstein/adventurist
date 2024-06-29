@@ -17,6 +17,12 @@ export const SpotPage = memo(() => {
         selectSpot(id);
     }, [id]);
 
+    function extractIframeSrc(iframeString) {
+        const srcRegex = /src="([^"]+)"/;
+        const match = iframeString.match(srcRegex);
+        return match ? match[1] : '';
+    }
+
     if (!selectedSpot) return (
         <div style={{ display: 'flex', justifyContent: 'center', height: '100vh', marginTop: '100px' }}>
             <ClipLoader size={100} />
@@ -37,7 +43,18 @@ export const SpotPage = memo(() => {
                     />
                 </label>
             </div>
-            {isShowMap && <GoogleMaps spots={[selectedSpot]} />}
+            {isShowMap &&
+                <div className="flex justify-center">
+                    <iframe
+                        src={extractIframeSrc(selectedSpot.mapsEmbed)}
+                        className="w-full h-[400px] border-0"
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                </div>
+            }
+            {/* {isShowMap && <GoogleMaps spots={[selectedSpot]} />} */}
             <SimilarSpots />
         </div>
     );

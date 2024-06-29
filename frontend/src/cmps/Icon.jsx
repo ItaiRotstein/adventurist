@@ -53,7 +53,7 @@ const GrContact = lazy(() => import('react-icons/gr').then(module => ({ default:
 const TiBusinessCard = lazy(() => import('react-icons/ti').then(module => ({ default: module.TiBusinessCard })));
 
 export const Icon = memo(({ icon, className, onClick }) => (
-  <Suspense fallback={<div style={{ width: '24px', height: '24px', backgroundColor: '#ccc', borderRadius: '50%' }}></div>}>
+  <Suspense fallback={<div style={{display:'inline', width: '24px', height: '24px'}}></div>}>
     {icon === 'IoLogoFacebook' && <IoLogoFacebook className={className} onClick={onClick} />}
     {icon === 'IoLogoInstagram' && <IoLogoInstagram className={className} onClick={onClick} />}
     {icon === 'IoLogoTwitter' && <IoLogoTwitter className={className} onClick={onClick} />}

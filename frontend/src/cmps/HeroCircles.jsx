@@ -4,11 +4,7 @@ import { heroList } from "../../heroList";
 export const HeroCircles = () => {
     const shadowClass = {boxShadow: '0 3.2vw 3.2vw rgba(0, 0, 0, 0.1)'}
     return (
-        <div className="pb-8">
-            <h2 className="text-center text-xl font-bold">
-                איזה סוג הרפתקאה אתם מחפשים?
-            </h2>
-            <div className="flex gap-2 overflow-x-auto no-scrollbar mx-auto">
+            <div className="flex gap-2 overflow-x-auto no-scrollbar mx-auto pb-8">
                 {heroList.map((hero) => (
                     <Link
                         key={hero.image}
@@ -25,6 +21,5 @@ export const HeroCircles = () => {
                     </Link>
                 ))}
             </div>
-        </div>
     );
 };
