@@ -1,11 +1,9 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
 import { SpotContext } from "../context/SpotContext";
 
 const Search = ({ parent }) => {
-    const { types, isLoading} = useContext(SpotContext);
-    // const isLoading = true
+    const { types, isLoading } = useContext(SpotContext);
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const [searchTerm, setSearchTerm] = useState('');
@@ -62,7 +60,6 @@ const Search = ({ parent }) => {
             {
                 isLoading ? (
                     <div className="skeleton flex justify-center items-center bg-gray-100 w-full h-[43.5px] p-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-clr3 focus:border-transparent">
-                        {/* <ClipLoader size={23} /> */}
                     </div>
                 ) : (
                     <select

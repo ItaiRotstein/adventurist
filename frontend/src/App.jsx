@@ -16,11 +16,13 @@ import { PostsPage } from "./pages/post/PostsPage";
 import { FavoritePage } from "./pages/FavoritePage";
 import { PostPage } from "./pages/post/PostPage";
 import { ActivityTypePage } from "./pages/ActivityTypePage";
+import { ScrollToTop } from "./cmps/ScrollToTop";
 
 export default function App() {
   return (
     <SpotProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen">
           <Header />
           <div className="flex-1 bg-white">
