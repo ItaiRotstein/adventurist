@@ -38,7 +38,7 @@ const Search = ({ parent }) => {
     return (
         <form
             onSubmit={(e) => handleSubmit(e)}
-            className={`${parent === 'HomePage' ? 'main-layout shadow-2xl p-4 mt-8 gap-8' : 'p-16 px-0 gap-4'} flex flex-col items-center rounded`}
+            className={`${parent === 'HomePage' ? 'main-layout p-4 mt-8 gap-8' : 'p-16 px-0 gap-4'} flex flex-col items-center rounded`}
         >
             <div className="relative w-full">
                 <input

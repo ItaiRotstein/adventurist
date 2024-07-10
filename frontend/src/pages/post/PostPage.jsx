@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import parse from "html-react-parser";
 import { getPostById } from "../../service/post.service";
 import { ClipLoader } from "react-spinners";
 import { Icon } from "../../cmps/Icon";
-import { Comments } from "../../cmps/post/Comments";
+// import { Comments } from "../../cmps/post/Comments";
 
 export const PostPage = () => {
   const { id } = useParams();
@@ -48,11 +48,14 @@ export const PostPage = () => {
             {selectedPost.comments.length} תגובות
           </li>
         </ul>
-        <div className="prose">
+        <div className="prose text-clr8">
           {parse(selectedPost.content)}
         </div>
         <hr className="my-8" />
-        <Comments selectedPost={selectedPost} />
+        {/* <Comments selectedPost={selectedPost} /> */}
+        <div className="flex justify-center">
+          <Link to="/blog" className="btn-main">חזרה לבלוג</Link>
+        </div>
       </div>
     </div>
   );

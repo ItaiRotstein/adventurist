@@ -52,7 +52,7 @@ export const SpotPreview = ({ spot, parentCmp }) => {
                             onClick={(e) => {
                                 e.preventDefault();
                                 // Replace `<PhoneNumber>` with the actual phone number in international format
-                                window.open(`https://wa.me/${spot.whatsapp}`, '_blank');
+                                spot.whatsapp && window.open(`https://wa.me/${spot.whatsapp}`, '_blank');
                             }}
                         >
                             <Icon icon="FaWhatsapp" className=" text-clr3 me-1 w-7 h-7" />

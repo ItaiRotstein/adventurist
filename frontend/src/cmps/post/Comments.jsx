@@ -43,7 +43,7 @@ export const Comments = ({ selectedPost }) => {
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
-                        className="w-full border border-gray-300 p-2 mb-4 rounded"
+                        className="w-full border border-gray-300 bg-white p-2 mb-4 rounded"
                         value={commentAuthorName}
                         onChange={handleAuthorChange}
                         placeholder="הקלידו שם..."
@@ -51,14 +51,13 @@ export const Comments = ({ selectedPost }) => {
                         required
                     />
                     <textarea
-                        className="w-full h-24 border border-gray-300 p-2 mb-2 rounded"
+                        className="w-full h-24 border border-gray-300 bg-white p-2 mb-2 rounded"
                         placeholder="הקלידו תגובה..."
                         value={newComment}
                         onChange={handleCommentChange}
                     ></textarea>
                     <div className="flex justify-end">
                         <button type="submit" className="btn-main !bg-clr2 !rounded">הוסף תגובה</button>
-
                     </div>
                 </form>
                 {/* Comments list */}

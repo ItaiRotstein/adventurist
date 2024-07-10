@@ -72,9 +72,10 @@ export const SearchResultsPage = () => {
               <SpotPreview key={result._id} spot={result} />
             ))}
           </ul>
-          <GoogleMaps spots={results} />
+          {/* <GoogleMaps spots={results} /> */}
         </>
-      )}
+      )
+      }
 
     </div>
   );

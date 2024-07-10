@@ -25,7 +25,7 @@ export default function App() {
         <ScrollToTop />
         <div className="flex flex-col min-h-screen">
           <Header />
-          <div className="flex-1 bg-white">
+          <div className="flex-1">
             <Routes>
               <Route path="/activity/:type" element={<ActivityTypePage />} />
               <Route path="/" element={<HomePage />} />

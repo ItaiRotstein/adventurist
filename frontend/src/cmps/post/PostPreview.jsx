@@ -12,9 +12,9 @@ export const PostPreview = ({ post }) => {
         <div className="max-w-2xl mx-auto my-8 p-4 bg-white rounded shadow">
             <h1 className="text-xl font-bold mb-4">{post.title}</h1>
             <img src={post.img} alt={post.title} />
-            <p className="prose">
+            <div className="prose text-clr8 mt-4">
                 {parse(extractFirstParagraph(post.content))}
-            </p>
+            </div>
             <div className="mt-4">
                 <Link className="btn-main" to={`/post/${post._id}`}>
                     המשך לקרוא
