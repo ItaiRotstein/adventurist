@@ -1,21 +1,40 @@
-import { useContext } from 'react';
-import { SpotContext } from '../context/SpotContext'; // Adjust the import path as necessary
-import { SpotPreview } from '../cmps/SpotPreview'; // Adjust the import path as necessary
+import { useState, useEffect, useContext } from 'react';
+import { ClipLoader } from 'react-spinners';
+import { SpotContext } from '../context/SpotContext';
+import { SpotPreview } from '../cmps/SpotPreview';
 
 export const FavoritePage = () => {
     const { spots } = useContext(SpotContext);
-    const favoriteSpotIds = JSON.parse(localStorage.getItem('favorites')) || [];
+    const [favoriteSpots, setFavoriteSpots] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        const favoriteSpotIds = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Filter the spots that match the favorite IDs
+        const filteredSpots = spots.filter(spot => favoriteSpotIds.includes(spot._id));
+
+            setFavoriteSpots(filteredSpots);
+            setIsLoading(false);
+    }, [spots]);
 
     return (
         <div className="main-layout">
             <h2 className="py-4 text-2xl text-center">מועדפים</h2>
-            {favoriteSpotIds.length > 0 ? (
-                <div>
-                    {favoriteSpotIds.map(spotId => {
-                        const spot = spots.find(s => s._id === spotId);
-                        return spot ? <SpotPreview key={spotId} spot={spot} /> : null;
-                    })}
+
+            {isLoading && (
+                <div style={{ display: 'flex', justifyContent: 'center', height: '100vh', marginTop: '100px' }}>
+                    <ClipLoader size={100} />
                 </div>
+            )
+            }
+            {!isLoading && favoriteSpots.length > 0 ? (
+                <ul>
+                    {favoriteSpots.map(spot => (
+                        <SpotPreview key={spot._id} spot={spot} />
+                    ))}
+                </ul>
             ) : (
                 <p className="text-lg text-center">אין לך מועדפים</p>
             )}

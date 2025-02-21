@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 
 export const PostPreview = ({ post }) => {
+    console.log("from PostPreview",post);
+    
     // Function to extract the first paragraph from the post content
     const extractFirstParagraph = (htmlContent) => {
         const matches = htmlContent.match(/<p>(.*?)<\/p>/); // Matches the first <p>...</p>

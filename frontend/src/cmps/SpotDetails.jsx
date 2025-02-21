@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Icon } from "./Icon";
 import { ShareButtons } from "./ShareButtons";
@@ -7,6 +7,12 @@ import { ShareButtons } from "./ShareButtons";
 export function SpotDetails({ spot }) {
     const [isFavorite, setIsFavorite] = useState(JSON.parse(localStorage.getItem('favorites'))?.includes(spot._id));
     const [isShowMore, setIsShowMore] = useState(false);
+
+    useEffect(() => {
+        // Re-check the favorite state when the spot changes
+        const currentFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        setIsFavorite(currentFavorites.includes(spot._id));
+    }, [spot._id]);
 
     const toggleFavorite = () => {
         const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
