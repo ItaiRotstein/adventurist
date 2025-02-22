@@ -37,17 +37,17 @@ body {
 
 @media (min-width: 768px) {
     .main-layout {
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 32px;
+        padding-right: 32px;
     }
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
     .main-layout {
         padding-left: 115px;
         padding-right: 115px;
     }
-}
+} */
 
 .custom-gradient {
     background-image: linear-gradient(to right, #f58629 0, #097240 33%, #f58629 66%, #f58629 100%);

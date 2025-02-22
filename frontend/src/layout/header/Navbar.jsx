@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <ul className="hidden lg:flex flex-wrap gap-6 xl:gap-8 justify-center xl:text-lg font-varela relative">
+    <ul className="hidden lg:flex flex-wrap gap-6 xl:gap-14 justify-center xl:text-lg font-varela relative">
       <li>
         <a href="/spots" className="hover:underline">כל הפעילויות</a>
       </li>

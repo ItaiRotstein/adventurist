@@ -61,7 +61,7 @@ const Search = ({ parent }) => {
     return (
         <form
             onSubmit={handleSubmit}
-            className={`${parent === 'HomePage' ? 'main-layout p-4 mt-8 gap-8' : 'p-16 px-0 gap-4'} flex flex-col items-center rounded`}
+            className={`${parent === 'HomePage' ? 'px-4 md:px-0 mt-20 gap-8' : 'p-16 px-0 gap-4'} flex flex-col items-center rounded max-w-2xl mx-auto`}
         >
             <div className="relative w-full">
                 <input
@@ -134,7 +134,7 @@ const Search = ({ parent }) => {
                 )}
             </div>
 
-            <button type="submit" className="btn-main mb-4">חפש</button>
+            <button type="submit" className="btn-main mb-4 hover:brightness-75">חפש</button>
         </form>
     );
 };

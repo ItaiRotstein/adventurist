@@ -3,20 +3,19 @@ import { Link } from 'react-router-dom';
 import { Icon } from "../cmps/Icon";
 import { useState } from "react";
 
-export const SpotPreview = ({ spot, parentCmp }) => {
+export const SpotPreview = ({ spot }) => {
     const [isFavorite] = useState(JSON.parse(localStorage.getItem('favorites'))?.includes(spot._id));
     const shadowClass = { boxShadow: '0 1.6vw 3.2vw rgba(0, 0, 0, 0.15)' };
-    // const style = parentCmp === 'SpotsPage' ? 'flex-row' : 'flex-col';
 
     return (
         <Link to={`/spot/${spot._id}`}>
             <li style={shadowClass} className="bg-white mb-4 py-4 px-2 list-none rounded-xl">
                 <div className={`flex flex-col justify-between gap-2`}>
-                    <div className="relative w-full h-60">
+                    <div className="relative w-full">
                         <img
                             src={spot.img}
                             alt={spot.name}
-                            className="object-cover w-full h-full rounded"
+                            className="object-cover w-full h-[400px] rounded"
                             loading="lazy"
                         />
                         <Icon icon="FaHeart" className={`absolute top-2 left-2  text-2xl ${isFavorite ? 'text-clr3' : 'text-gray-300'}`} />
@@ -33,19 +32,17 @@ export const SpotPreview = ({ spot, parentCmp }) => {
                                 window.open(spot.mapsLink, '_blank');
                             }}
                         >
-                            <Icon icon="IoLocationOutline" className=" text-clr3 me-1 w-7 h-7" />
-                            {/* <p className="inline text-sm">{spot.region}</p> */}
+                            <Icon icon="IoLocationOutline" className=" text-clr3 me-1 w-7 h-7 hover:brightness-75" />
                         </button>
                         |
                         <button
                             className="flex items-center justify-center"
                             onClick={(e) => {
-                                // e.stopPropagation();
                                 e.preventDefault();
                                 window.open(spot.website, '_blank');
                             }}
                         >
-                            <Icon icon="TbWorldWww" className=" text-clr3 me-1 w-7 h-7" />
+                            <Icon icon="TbWorldWww" className=" text-clr3 me-1 w-7 h-7 hover:brightness-75" />
                         </button>
                         |
                         <button
@@ -55,8 +52,7 @@ export const SpotPreview = ({ spot, parentCmp }) => {
                                 spot.whatsapp && window.open(`https://wa.me/${spot.whatsapp}`, '_blank');
                             }}
                         >
-                            <Icon icon="FaWhatsapp" className=" text-clr3 me-1 w-7 h-7" />
-                            {/* <p dir="ltr" className="inline text-sm">{spot.type}</p> */}
+                            <Icon icon="FaWhatsapp" className=" text-clr3 me-1 w-7 h-7 hover:brightness-75" />
                         </button>
                     </div>
                 </div>

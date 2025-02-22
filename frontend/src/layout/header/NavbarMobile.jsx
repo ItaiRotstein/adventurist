@@ -17,7 +17,7 @@ export const NavbarMobile = ({ isMenuShow, setIsMenuShow }) => {
     }
 
     return (
-        <ul className={`lg:hidden fixed ${isMenuShow ? 'left-0' : '-left-full'} top-[76px] pt-6 w-full h-full flex flex-col main-layout tracking-widest text-black text-xl font-semibold bg-white transition-all duration-300 z-100`}>
+        <ul className={`lg:hidden fixed ${isMenuShow ? 'left-0' : '-left-full'} top-[80px] md:top-[94.5px] pt-6 w-full h-full flex flex-col main-layout tracking-widest text-black text-xl font-semibold bg-white transition-all duration-300 z-100`}>
             <li className="border-b py-6">
                 <Link to={"/spots"} onClick={handleClick} className=" hover:underline">
                     <Icon icon="IoStarOutline" className="inline me-2 text-clr3 w-6 h-6" />

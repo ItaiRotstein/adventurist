@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { getSpots, getSpotById, getSimilarSpots, getAllTypes } from "../service/spot.service";
+
 export const SpotContext = createContext();
 
 export const SpotProvider = ({ children }) => {
@@ -7,6 +8,7 @@ export const SpotProvider = ({ children }) => {
     const [selectedSpot, setSelectedSpot] = useState(null);
     const [similarSpots, setSimilarSpots] = useState([]);
     const [types, setTypes] = useState([]);
+    const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -16,8 +18,8 @@ export const SpotProvider = ({ children }) => {
                 const spotsResponse = await getSpots();
                 spotsResponse.sort((a, b) => a.name.localeCompare(b.name));
                 setSpots(spotsResponse);
-    
-                // Extract types from spots
+
+                // Extract unique types from spots
                 const extractedTypes = [...new Set(spotsResponse.map(spot => spot.type).flat())];
                 setTypes(extractedTypes);
             } catch (error) {
@@ -30,12 +32,23 @@ export const SpotProvider = ({ children }) => {
         fetchData();
     }, []);
 
-
     const selectSpot = async (spotId) => {
         const spot = await getSpotById(spotId);
         setSelectedSpot(spot);
         const filteredSpots = await getSimilarSpots(spot.type);
         setSimilarSpots(filteredSpots.filter(spot => spot._id !== spotId));
+    };
+
+    // Toggle favorite function (moved from SpotDetails)
+    const toggleFavorite = (spotId) => {
+        let updatedFavorites;
+        if (favorites.includes(spotId)) {
+            updatedFavorites = favorites.filter(id => id !== spotId);
+        } else {
+            updatedFavorites = [...favorites, spotId];
+        }
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        setFavorites(updatedFavorites);
     };
 
     const value = {
@@ -44,7 +57,9 @@ export const SpotProvider = ({ children }) => {
         selectSpot,
         similarSpots,
         types, 
-        isLoading
+        isLoading,
+        favorites,
+        toggleFavorite
     };
 
     return (

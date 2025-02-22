@@ -7,6 +7,7 @@ import { Icon } from "../../cmps/Icon";
 import { Navbar } from "./Navbar";
 import { NavbarMobile } from "./NavbarMobile";
 import { SideDrawer } from "./SideDrawer";
+import FavoriteIcon from "./FavoriteIcon";
 
 export const Header = () => {
     const [isMenuShow, setIsMenuShow] = useState(false);
@@ -22,18 +23,21 @@ export const Header = () => {
     };
 
     return (
-        <header className={`sticky top-0 z-20 bg-[#ffffffe3] flex justify-between items-center main-layout py-2`}>
+        <header className={`sticky top-0 z-20 bg-[#ffffffe3] flex justify-between items-center main-layout min-h-20`}>
+            <div className="flex items-center">
+                <button onClick={toggleDrawer} className="">
+                    <Icon icon="IoSearch" className="text-3xl text-clr3 hover:brightness-75 cursor-pointer" />
+                </button>
+                <FavoriteIcon />
+            </div>
             <Navbar />
-            <button onClick={toggleDrawer} className="">
-                <Icon icon="IoSearch" className="text-3xl text-clr3 hover:brightness-75 cursor-pointer" />
-            </button>
             <Link to="/" className="flex flex-col items-center" onClick={() => setIsMenuShow(false)}>
                 <img
                     width={360}
                     height={360}
-                    src="https://res.cloudinary.com/itai-rotstein/image/upload/v1718780026/Adventurist/adventurist-logo5_mpmskw.png" 
+                    src="https://res.cloudinary.com/itai-rotstein/image/upload/v1718780026/Adventurist/adventurist-logo5_mpmskw.png"
                     className="w-[180px] md:w-[270px] lg:w-[180px]"
-                    alt="סילברט לוגו"
+                    alt=" לוגו"
                 />
             </Link>
             <SideDrawer isOpen={isDrawerOpen} closeDrawer={() => setDrawerOpen(false)} />
