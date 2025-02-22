@@ -9,6 +9,23 @@ export function SpotDetails({ spot }) {
 
     const isFavorite = favorites.includes(spot._id);
 
+    // Define keys and labels for dynamic rendering
+    const moreDetailsKeys = [
+        { key: "instructor", label: "מדריך" },
+        { key: "group", label: "קבוצות" },
+        { key: "kids", label: "ילדים" },
+        { key: "disabled", label: "נגישות" },
+        { key: "parking", label: "חנייה" },
+        { key: "shower", label: "מקלחות" },
+        { key: "toilet", label: "שירותים" },
+        { key: "changing", label: "מלתחות" },
+        { key: "storage", label: "אחסון חפצים אישיים" },
+        { key: "events", label: "אופציה לאירועים" },
+        { key: "lessons", label: "שיעורים" },
+        { key: "rentals", label: "השכרת ציוד" },
+        { key: "shop", label: "חנות" }
+    ];
+
     return (
         <div className="mt-4">
             <h1 className="main-layout text-2xl py-4 font-bold text-center">{spot?.name}</h1>
@@ -52,13 +69,19 @@ export function SpotDetails({ spot }) {
                         <strong>וואטסאפ:</strong> {spot?.whatsapp}
                     </a>
                 </li>
+
                 {isShowMore ? (
                     <>
-                        <li className="border-b py-3">
-                            <Icon icon="GiTeacher" className="inline me-2 w-6 h-6 text-clr4" />
-                            <strong>מדריך:</strong>
-                            {spot?.instructor ? <Icon icon="IoCheckmark" className="inline text-green-600 w-7 h-7" /> : <Icon icon="IoClose" className="inline w-7 h-7 text-red-600" />}
-                        </li>
+                        {moreDetailsKeys.map(({ key, label }) => (
+                            <li key={key} className="border-b py-3">
+                                <strong>{label}:</strong>
+                                {spot?.[key] ? (
+                                    <span className="inline text-green-600 text-2xl"> ✔︎ </span>
+                                ) : (
+                                    <span className="inline text-red-600 text-2xl"> ✕ </span>
+                                )}
+                            </li>
+                        ))}
                         <li className="border-b py-3">
                             <button onClick={() => setIsShowMore(false)} className="text-clr4 font-bold">פחות פרטים</button>
                         </li>

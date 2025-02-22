@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Icon } from "../../cmps/Icon";
+import { CiSearch } from "react-icons/ci";
 
 import { Navbar } from "./Navbar";
 import { NavbarMobile } from "./NavbarMobile";
@@ -26,7 +27,7 @@ export const Header = () => {
         <header className={`sticky top-0 z-20 bg-[#ffffffe3] flex justify-between items-center main-layout min-h-20`}>
             <div className="flex items-center">
                 <button onClick={toggleDrawer} className="">
-                    <Icon icon="IoSearch" className="text-3xl text-clr3 hover:brightness-75 cursor-pointer" />
+                    <CiSearch className="text-3xl text-clr3 hover:brightness-75 cursor-pointer" />
                 </button>
                 <FavoriteIcon />
             </div>
