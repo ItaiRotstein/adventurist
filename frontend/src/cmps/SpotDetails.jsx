@@ -6,6 +6,19 @@ import { ShareButtons } from "./ShareButtons";
 export function SpotDetails({ spot }) {
     const { favorites, toggleFavorite } = useContext(SpotContext);
     const [isShowMore, setIsShowMore] = useState(false);
+    const [activeTooltip, setActiveTooltip] = useState(null); // Store the currently active tooltip
+    let timeout;
+
+    const handleMouseEnter = (tooltipKey) => {
+        timeout = setTimeout(() => {
+            setActiveTooltip(tooltipKey); // Set the active tooltip
+        }, 300); // Delay of 500ms before showing
+    };
+
+    const handleMouseLeave = () => {
+        clearTimeout(timeout); // Clear timeout if the user leaves quickly
+        setActiveTooltip(null); // Hide the tooltip instantly
+    };
 
     const isFavorite = favorites.includes(spot._id);
 
@@ -30,19 +43,33 @@ export function SpotDetails({ spot }) {
         <div className="mt-4">
             <h1 className="main-layout text-2xl py-4 font-bold text-center">{spot?.name}</h1>
             <div className="main-layout flex gap-2 justify-end items-center mb-4">
-                <div className="relative group">
+                <div
+                    className="relative group"
+                    onMouseEnter={() => handleMouseEnter("share")}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <ShareButtons />
-                    <div className="absolute -left-7 top-[50px] mb-2 opacity-0 group-hover:opacity-100 items-center justify-center bg-gray-800 text-white text-sm px-3 py-2 rounded-md whitespace-nowrap before:content-['▲'] before:text-gray-800 before:absolute before:bottom-7 before:left-[40px]">
-                        שתף ברשתות
-                    </div>
+                    {/* tooltip */}
+                    {activeTooltip === "share" &&
+                        <div className="hidden md:flex absolute -left-7 top-[50px] mb-2 items-center justify-center bg-gray-800 text-white text-sm px-3 py-2 rounded-md whitespace-nowrap before:content-['▲'] before:text-gray-800 before:absolute before:bottom-7 before:left-[40px]">
+                            שתף ברשתות
+                        </div>
+                    }
                 </div>
-                <div className="relative group">
+                <div
+                    className="relative group"
+                    onMouseEnter={() => handleMouseEnter("favorite")}
+                    onMouseLeave={handleMouseLeave}
+                >
                     <button className="shadow p-2 rounded-full hover:brightness-75" onClick={() => toggleFavorite(spot._id)}>
                         <Icon icon="FaHeart" className={`text-[24px] ${isFavorite ? 'text-clr3' : 'text-gray-300'}`} />
                     </button>
-                    <div className="absolute left-0 top-[50px] mb-2 hidden group-hover:flex items-center justify-center bg-gray-800 text-white text-sm px-3 py-2 rounded-md whitespace-nowrap before:content-['▲'] before:text-gray-800 before:absolute before:bottom-7 before:left-3">
-                        {isFavorite ? 'הסר ממועדפים' : 'הוסף למועדפים'}
-                    </div>
+                    {/* tooltip */}
+                    {activeTooltip === "favorite" &&
+                        <div className="hidden md:flex absolute left-0 top-[50px] mb-2 items-center justify-center bg-gray-800 text-white text-sm px-3 py-2 rounded-md whitespace-nowrap before:content-['▲'] before:text-gray-800 before:absolute before:bottom-7 before:left-3">
+                            {isFavorite ? 'הסר ממועדפים' : 'הוסף למועדפים'}
+                        </div>
+                    }
                 </div>
             </div>
             <div className="w-full h-60">
