@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const API_URL = (import.meta.env.VITE_NODE_ENV === 'production')
-    ? '/api'
-    : 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
     
 //--Get spots--
 export const getSpots = async (type) => {
