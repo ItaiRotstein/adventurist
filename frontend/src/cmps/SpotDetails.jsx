@@ -12,7 +12,7 @@ export function SpotDetails({ spot }) {
     const handleMouseEnter = (tooltipKey) => {
         timeout = setTimeout(() => {
             setActiveTooltip(tooltipKey); // Set the active tooltip
-        }, 300); // Delay of 500ms before showing
+        }, 300); 
     };
 
     const handleMouseLeave = () => {
